@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+img {
+    max-width: 200px;
+}
+
+h1 {
+    font-family: "Idiqlat", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
