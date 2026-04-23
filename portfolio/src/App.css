@@ -1,54 +1,150 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ==== variables ==== */
+:root {
+  --color-principal: #376036;
+  --color-secundario: #7db471;
+  --color-terciario: #72a3c2;
+  --color-blanco: #ffffff;
+  --color-fondo: #F2EED9;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ── Dark mode text fixes ── */
+:root.dark-mode body {
+  color: var(--color-blanco);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+:root.dark-mode .value-desc {
+  color: rgba(240, 240, 240, 0.85);
+}
+
+:root.dark-mode .skill-category-label {
+  color: rgba(240, 240, 240, 0.6);
+}
+
+:root.dark-mode .profile-entry p,
+:root.dark-mode .sobre-text {
+  color: var(--color-blanco);
+  opacity: 0.9;
+}
+
+:root.dark-mode .profile-label {
+  color: var(--color-blanco);
+}
+
+:root.dark-mode .panel-eyebrow,
+:root.dark-mode .sobre-heading {
+  color: var(--color-blanco);
+  opacity: 0.7;
+}
+
+:root.dark-mode #seccion2 span,
+:root.dark-mode #seccion2 p {
+  color: var(--color-blanco);
+}
+
+:root.dark-mode .tag {
+  color: var(--color-blanco);
+}
+
+:root.dark-mode .tag-soft {
+  color: var(--color-blanco);
+}
+
+:root.dark-mode #conocimientos h2 {
+  color: var(--color-blanco);
+}
+
+:root.dark-mode .pc-counter {
+  color: rgba(240, 240, 240, 0.7);
+}
+
+:root.dark-mode .form-subtitle {
+  color: rgba(240, 240, 240, 0.7);
+}
+
+:root.dark-mode .privacy-note {
+  color: rgba(240, 240, 240, 0.6);
+}
+
+:root.dark-mode #seccion1-nombre-informacion h1,
+:root.dark-mode #seccion1-nombre-informacion p {
+  color: var(--color-blanco);
+}
+
+:root.dark-mode #seccion1-logo-semicirculo {
+  background-color: var(--color-principal);
+}
+
+:root.dark-mode #seccion1 img {
+  border: none;
+  box-shadow: 0 0 0 3px var(--color-secundario);
+  filter: brightness(0.6);
+}
+
+:root.colorblind-mode #seccion1 img {
+  background-color: var(--color-principal);
+}
+
+/* ==== reset ==== */
+body {
+  background-color: var(--color-fondo);
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1, h2 {
+  font-family: "Idiqlat", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ==== scroller ==== */
+#seccion1, #seccion2, #seccion3, #seccion4, #seccion5 {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+.scroller {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller article {
+  scroll-snap-align: start;
+  display: flex;
+}
+
+/* ==== responsive ==== */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .scroller {
+    height: auto;
+    overflow-y: auto;
+    scroll-snap-type: none;
+  }
+
+  /* Articles must stack their children vertically on mobile */
+  .scroller article {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* All sections lose the fixed 100vh so content can breathe */
+  #seccion1, #seccion2, #seccion3, #seccion4, #seccion5 {
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  #seccion5 {
+    height: auto;
+    min-height: unset;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-img {
-    max-width: 200px;
-}
-
-h1 {
-    font-family: "Idiqlat", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-

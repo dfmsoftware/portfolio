@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+    --bg:       var(--color-principal);
+    --surface:  var(--color-secundario);
+    --border:   var(--color-secundario);
+    --accent:   var(--color-terciario);
+    --accent2:  #7b5ef8;
+    --text:     #f0f0f5;
+    --muted:    #ffffff;
+    --card-w:   70vw;
+    --card-h:   480px;
+    --gap:      24px;
+    --radius:   18px;
+    --ease:     cubic-bezier(.4,0,.2,1);
+}
+
+.pc-root {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0 80px;
+    overflow: hidden;
+    width: 100vw;
+}
+
+/* ── Header ── */
+.pc-header {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 40px;
+    margin-bottom: 52px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+.pc-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.pc-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.pc-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 8vw, 96px);
+    line-height: .9;
+    color: var(--text);
+    letter-spacing: .01em;
+}
+.pc-counter {
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-bottom: 8px;
+}
+.pc-counter span {
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ── Track ── */
+.pc-viewport {
+    width: 100%;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+}
+.pc-viewport:active { cursor: grabbing; }
+
+.pc-track {
+    display: flex;
+    gap: var(--gap);
+    padding: 12px 40px 20px;
+    transition: transform .55s var(--ease);
+    will-change: transform;
+}
+
+/* ── Card ── */
+.pc-card {
+    position: relative;
+    flex: 0 0 var(--card-w);
+    height: var(--card-h);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    will-change: transform;
+}
+.pc-card.active {
+    transform: translateY(-10px) scale(1.025);
+}
+.pc-card:not(.active) { opacity: .55; }
+
+.pc-card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+.pc-card:hover .pc-card-img { transform: scale(1.04); }
+
+.pc-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            to top,
+            rgba(12,12,14,.98) 0%,
+            rgba(12,12,14,.55) 55%,
+            transparent 100%
+    );
+}
+
+.pc-card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pc-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(212,242,68,.12);
+    border: 1px solid rgba(212,242,68,.25);
+    border-radius: 100px;
+    padding: 4px 10px;
+}
+
+.pc-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    line-height: 1;
+    color: var(--text);
+    letter-spacing: .02em;
+}
+
+.pc-card-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(240,240,245,.65);
+    font-weight: 300;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s var(--ease), opacity .4s var(--ease);
+    opacity: 0;
+}
+.pc-card.active .pc-card-desc { max-height: 80px; opacity: 1; }
+
+/* ── Controls ── */
+.pc-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.pc-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .15s;
+    flex-shrink: 0;
+}
+.pc-btn:hover { background: var(--border); border-color: var(--muted); transform: scale(1.08); }
+.pc-btn:active { transform: scale(.95); }
+.pc-btn:disabled { opacity: .3; cursor: default; transform: none; }
+.pc-btn svg { width: 18px; height: 18px; }
+
+.pc-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.pc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 100px;
+    background: var(--border);
+    cursor: pointer;
+    transition: width .3s var(--ease), background .3s;
+}
+.pc-dot.active { width: 28px; background: var(--accent); }
+
+/* ── Progress bar ── */
+.pc-progress {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+}
+.pc-progress-fill {
+    height: 100%;
+    background: var(--accent2);
+    transition: width .55s var(--ease);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    :root {
+        --card-w: 85vw;
+        --card-h: 360px;
+    }
+
+    .pc-root {
+        padding: 40px 0 60px;
+        justify-content: flex-start;
+    }
+
+    .pc-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px;
+        margin-bottom: 32px;
+        gap: 8px;
+    }
+
+    .pc-counter {
+        padding-bottom: 0;
+    }
+
+    .pc-track {
+        padding: 12px 20px 20px;
+    }
+
+    .pc-card-title {
+        font-size: 26px;
+    }
+
+    .pc-card.active .pc-card-desc {
+        max-height: 100px;
+    }
+
+    .pc-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .pc-controls {
+        margin-top: 28px;
+        gap: 12px;
+    }
+}

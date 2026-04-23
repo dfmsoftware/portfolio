@@ -1,40 +1,46 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
 import './App.css'
+import './components/css/App.css.additions.css'
+
+import { useRef } from "react";
+
+import {Hero} from "./components/jsx/Hero.jsx";
+import {InformacionGeneral} from "./components/jsx/InformacionGeneral.jsx";
+import {Carousel} from "./components/jsx/Carousel.jsx";
+import {Habilidades} from "./components/jsx/Habilidades.jsx";
+import {Contacto} from "./components/jsx/Contacto.jsx";
+import { FloatingControls } from "./components/jsx/FloatingControls.jsx";
+import {AppProvider} from "@/components/jsx/AppContext.jsx";
+
 
 function App() {
-  //const [count, setCount] = useState(0)
+    const scrollerRef = useRef(null);
 
   return (
     <>
-          {/* 
-              <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-          </p>
+        <AppProvider>
+            <section className={"scroller"} ref={scrollerRef}>
+                <article id={"seccion1"}>
+                    <Hero></Hero>
+                </article>
+                <article id={"seccion2"}>
+                    <InformacionGeneral></InformacionGeneral>
+                </article>
+                <article id={"seccion3"}>
+                    <Carousel></Carousel>
+                </article>
+                <article id={"seccion4"}>
+                    <Habilidades></Habilidades>
+                </article>
+                <article id={"seccion5"}>
+                    <Contacto></Contacto>
+                </article>
+            </section>
 
-              */}
-
-          <img src="..\src\img\dfmss-logo.png" />
-          {/* &#243; = ó */ }
-          <h1>Su visi&#243;n, mi misi&#243;n</h1>
+            <FloatingControls
+                scrollerRef={scrollerRef}
+                whatsappNumber="50685550293"
+            />
+        </AppProvider>
     </>
   )
 }

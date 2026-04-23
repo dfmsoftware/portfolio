@@ -1,0 +1,35 @@
+:root.dark-mode {
+    --color-principal: #1a3a19;
+    --color-secundario: #2d5c28;
+    --color-terciario: #5a8aaa;
+    --color-blanco: #f0f0f0;
+    --color-fondo: #1e1e1a;
+}
+
+:root.colorblind-mode {
+    --color-principal: #1a3a6b;
+    --color-secundario: #4a7fc1;
+    --color-terciario: #e07b2a;
+    --color-blanco: #ffffff;
+    --color-fondo: #F2EED9;
+}
+
+:root.colorblind-mode.dark-mode {
+    --color-principal: #0f2447;
+    --color-secundario: #2a5a9a;
+    --color-terciario: #c06010;
+    --color-fondo: #1a1a2a;
+}
+
+/* dark mode logo tint */
+/*:root.dark-mode #seccion1 img {*/
+/*    filter: hue-rotate(120deg) brightness(0.7);*/
+/*}*/
+
+/*:root.colorblind-mode #seccion1 img {*/
+/*    filter: hue-rotate(200deg) saturate(0.8);*/
+/*}*/
+
+:root.colorblind-mode.dark-mode #seccion1 img {
+    filter: hue-rotate(200deg) brightness(0.7) saturate(0.8);
+}

@@ -1,0 +1,128 @@
+.form-section {
+    background-color: var(--color-principal);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    width: 100%;
+}
+
+.form-section h1 {
+    color: var(--color-blanco);
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.form-subtitle {
+    color: var(--color-blanco);
+    font-size: 15px;
+    margin: 0 0 2.5rem;
+}
+
+#contact-form {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-group label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-blanco);
+}
+
+.field-group input,
+.field-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-secundario);
+    border: none;
+    border-bottom: 3px solid var(--color-terciario);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 0.85rem 1rem;
+    color: var(--color-blanco);
+    font-size: 15px;
+    font-family: inherit;
+    transition: background 0.18s, border-color 0.18s;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: var(--color-blanco);
+}
+
+/*.field-group input:focus,*/
+/*.field-group textarea:focus {*/
+/*    outline: none;*/
+/*    background-color: #1e2d50;*/
+/*    border-bottom-color: #ff6b82;*/
+/*}*/
+
+.field-group textarea {
+    height: 130px;
+    resize: none;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+.char-count {
+    font-size: 11px;
+    color: rgba(240, 240, 240, 0.3);
+    text-align: right;
+}
+
+.submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.privacy-note {
+    font-size: 12px;
+    color: var(--color-blanco);
+}
+
+#submit {
+    background: var(--color-terciario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: opacity 0.15s, transform 0.1s;
+}
+
+#submit:hover {
+    opacity: 0.88;
+}
+
+#submit:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+    .form-section {
+        min-height: unset;
+        padding-bottom: 6rem;
+    }
+}

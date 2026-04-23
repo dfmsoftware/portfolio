@@ -1,0 +1,173 @@
+#seccion2 {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#seccion2 span, #seccion2 p{
+    color: #000000;
+}
+
+#seccion2-perfil {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 6vw 3rem 4vw;
+    box-sizing: border-box;
+}
+
+#seccion2-perfil::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 120%;
+    background-color: var(--color-secundario);
+    clip-path: polygon(0 0, 70% 0, 85% 100%, 0 100%);
+    z-index: -1;
+}
+
+#seccion2-sobre-mi {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 4vw 3rem 6vw;
+    box-sizing: border-box;
+}
+
+#seccion2-sobre-mi::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 120%;
+    left: -20%;
+    background-color: var(--color-fondo);
+    z-index: -1;
+}
+
+.panel-eyebrow,
+.sobre-heading {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-principal);
+    opacity: 0.6;
+    margin: 0 0 1.75rem;
+}
+
+.profile-entry {
+    margin-bottom: 1.75rem;
+}
+
+.profile-entry:last-of-type {
+    margin-bottom: 0;
+}
+
+.profile-label {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-principal);
+    border-bottom: 2px solid var(--color-terciario);
+    padding-bottom: 3px;
+    margin-bottom: 0.75rem;
+}
+
+.profile-entry p,
+.sobre-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-principal);
+    margin: 0;
+    opacity: 0.85;
+    /*max-width: 36ch;*/
+    text-align: justify;
+}
+
+.cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    margin-top: 0.5rem;
+    transition: opacity 0.15s;
+}
+
+.cv-btn:hover { opacity: 0.85; }
+
+.cv-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--color-blanco);
+}
+
+#seccion2 img {
+    max-width: 22rem;
+    transform: scaleX(-1);
+    display: block;
+    margin: 2rem auto 0;
+    position: relative;
+    bottom: -4rem;
+}
+
+.btn-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    #seccion2 {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+    }
+
+    #seccion2-perfil,
+    #seccion2-sobre-mi {
+        width: 100%;
+        height: auto;
+        min-height: 50vh;
+        padding: 3rem 1.5rem;
+    }
+
+    #seccion2-perfil::before {
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
+
+    #seccion2-sobre-mi::before {
+        display: none;
+    }
+
+    #seccion2 img {
+        max-width: 12rem;
+        align-self: center;
+    }
+}
