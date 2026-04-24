@@ -235,3 +235,44 @@
         }
     }
 }
+
+/* ── Section nav inside menu ── */
+.fc-section-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 4px 0 2px;
+}
+
+.fc-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-principal);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease, width 0.25s ease;
+    flex-shrink: 0;
+}
+
+.fc-dot:hover {
+    transform: scale(1.25);
+    background: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+.fc-dot-active {
+    background: var(--color-principal);
+    width: 24px;
+    border-radius: 100px;
+}
+
+.fc-menu-divider {
+    height: 1px;
+    background: var(--color-secundario);
+    opacity: 0.3;
+    margin: 0.5rem 0;
+}
